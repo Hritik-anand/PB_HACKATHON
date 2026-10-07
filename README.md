@@ -1,67 +1,49 @@
-# PB_HACKATHON
-ACTIVITY 14
+# CPU Scheduling Algorithm Simulator
 
-# CPU Scheduling Algorithm Simulator — "Mission Control" Edition
+Hackathon Abhinava, B25CS0311 Portfolio Building. Problem statement 13.
 
-**Coursework / Hackathon:** B25CS0311 Portfolio Building – Hackathon Abhinava  
-**Problem Statement:** Problem Statement 13  
+## Problem
+Simulate CPU scheduling algorithms on a set of processes (arrival time, burst time, priority),
+draw the Gantt chart, and compare average waiting and turnaround times.
 
----
+## Approach
+A GUI-free engine (`CPUScheduler`) produces a Gantt schedule and the metrics for every algorithm.
+A Tkinter interface collects the input; Matplotlib draws the charts; a Canvas scene animates the CPU.
 
-## 📌 Project Overview
+## Algorithms
+Required: FCFS, SJF, Round Robin, Priority.
+Extra: SRTF (preemptive SJF) and preemptive Priority.
 
-This project is an interactive, GUI-based **CPU Scheduling Algorithm Simulator** developed in Python. It simulates standard operating system scheduling algorithms, calculates critical CPU scheduling performance metrics, visualizes execution through animated Gantt charts and live hardware pipelines, and provides side-by-side benchmark tools.
+## Bonus features
+1. **Live CPU view**: animated CPU chip, ready queue and terminated bin, with play, pause, step and scrub.
+2. **Process timeline**: one swim-lane per process (arrival, running, waiting, completion).
+3. **Event log**: a readable story of every arrival, dispatch, preemption and completion.
+4. **Quantum Lab**: sweeps the Round Robin quantum and finds the best one.
+5. **Algorithm guide**: how each algorithm works, plus an automatic recommendation for your data.
+6. **Dark / Light theme**.
+7. **Save / Load workspace (JSON)**, CSV import and export, PNG chart export.
+8. **HTML report**: printable report with the Gantt chart and the comparison table.
+9. **Extra metrics**: response time, CPU utilization and context switches.
+10. **Compare All**: table plus bar chart of all six algorithms.
 
-The core scheduling engine (`CPUScheduler`) is fully decoupled from the graphical presentation layer, enabling standalone verification, simulation, and automated testing.
+## Tools
+Python 3.8+, Tkinter (built in), Matplotlib.
 
----
+## How to run
+1. Install Python 3.8+ (tick "Add Python to PATH" and keep "tcl/tk and IDLE" ticked on Windows).
+2. `pip install -r requirements.txt`  (a virtual environment is optional; on Windows you can just double-click `run.bat`)
+3. `python cpu_scheduler.py`
+   On Linux, also run `sudo apt install python3-tk`.
 
-## 🚀 Key Features
+If `python -m venv` hangs on "ensurepip", skip it: press Ctrl+C, delete the half-made `venv` folder,
+then either run without a venv (steps above) or use `python -m venv venv --without-pip`.
 
-* **6 Scheduling Algorithms:**
-  * **FCFS** (First-Come, First-Served)
-  * **SJF** (Shortest Job First – Non-preemptive)
-  * **SRTF** (Shortest Remaining Time First – Preemptive SJF)[cite: 1, 2]
-  * **Round Robin** (with configurable Time Quantum)[cite: 1, 2]
-  * **Priority (Non-preemptive)**[cite: 1, 2]
-  * **Priority (Preemptive)**[cite: 1, 2]
-* **Computed Metrics:**
-  * Completion Time ($\text{CT}$)
-  * Turnaround Time ($\text{TAT} = \text{CT} - \text{AT}$)
-  * Waiting Time ($\text{WT} = \text{TAT} - \text{BT}$)
-  * Response Time ($\text{RT} = \text{First CPU Time} - \text{AT}$)
-  * CPU Utilization ($\% = \frac{\text{Busy Time}}{\text{Total Time}} \times 100$)
-  * Context Switches count
-* **Visualization & Analysis Tabs:**
-  * **Gantt Chart:** Interactive timeline with idle interval detection and step-by-step playback animation[cite: 1, 2].
-  * **Live CPU View:** Hardware animation showing `NEW` $\rightarrow$ `READY QUEUE` $\rightarrow$ `CPU CORE` $\rightarrow$ `TERMINATED` stages with play, pause, step, and scrubbing controls[cite: 1, 2].
-  * **Process Timeline:** Multi-lane swim-lane diagram detailing process arrival, waiting state, active runtime, and termination[cite: 1, 2].
-  * **Event Log:** Chronological textual narrative of scheduler dispatches, preemptions, and completions[cite: 1, 2].
-  * **Quantum Lab:** Sweep analysis for Round Robin to identify the optimal quantum size for minimum waiting time and context switches[cite: 1, 2].
-  * **Algorithm Guide:** Theoretical documentation and automatic algorithm recommendation based on the loaded workload[cite: 1, 2].
-* **Exporting & Utilities:**
-  * **Compare All:** Benchmark window with comparative bar charts across all 6 algorithms[cite: 1, 2].
-  * **HTML Report:** Printable self-contained report with embedded base64 chart visuals and result tables[cite: 1, 2].
-  * **Data Persistence:** JSON workspace save/load and CSV process import/export[cite: 1, 2].
-  * **UI Themes:** Dark and Light mode options[cite: 1, 2].
+Quick start: click **Load Sample**, then explore the tabs. Press **F5** to re-run.
 
----
+Self-test (no window needed): `python cpu_scheduler.py --selftest`
 
-## 🛠️ Tech Stack & Requirements
+## CSV import format
+`arrival,burst,priority` (header optional, priority optional). See `sample_processes.csv`.
 
-* **Language:** Python 3.8+
-* **GUI Framework:** `tkinter` (included with standard Python installations)[cite: 1, 2]
-* **Data Visualization:** `matplotlib >= 3.5`
-
----
-
-## 💻 Installation & Setup
-
-### Method 1: Automatic One-Click Launch (Windows)
-Double-click `run.bat` in the project root[cite: 2, 4]. It checks your Python environment, installs dependencies, runs the engine self-test, and opens the simulator[cite: 4].
-
-### Method 2: Manual Setup via Terminal
-
-1. **Verify Python & Tkinter:**
-   ```cmd
-   python --version
+## Team
+(Add team name, member names, roll numbers and one-line contributions.)
