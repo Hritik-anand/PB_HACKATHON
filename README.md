@@ -46,4 +46,7 @@ Self-test (no window needed): `python cpu_scheduler.py --selftest`
 `arrival,burst,priority` (header optional, priority optional). See `sample_processes.csv`.
 
 ## Team
-(Add team name, member names, roll numbers and one-line contributions.)
+M. Sampriyan - R25EJ060
+DILIP N - R25EJ029
+HARSHIL NAIR - R25EJ040
+HRITIK ANAND - R25EJ042
